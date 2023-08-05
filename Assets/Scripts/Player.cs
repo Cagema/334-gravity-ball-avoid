@@ -8,10 +8,24 @@ public class Player : MonoBehaviour
 {
     Bonus _bonus;
     Rigidbody2D _rb;
+    SpriteRenderer _sr;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _sr = GetComponent<SpriteRenderer>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (Physics2D.gravity.x < 0)
+        {
+            _sr.flipX = true;
+        }
+        else
+        {
+            _sr.flipX = false;
+        }
     }
 
     public void StartFall()

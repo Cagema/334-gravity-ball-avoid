@@ -83,7 +83,6 @@ public class ChaosMotion : MonoBehaviour
             Random.Range(-GameManager.Single.RightUpperCorner.y + 0.5f, GameManager.Single.RightUpperCorner.y), 0);
 		_randomPauseTime = Random.Range(_minPause, _maxPause);
 
-		float rot = Mathf.Atan2(_finishPos.y - transform.position.y, _finishPos.x - transform.position.x) * Mathf.Rad2Deg - 90;
-		transform.rotation = Quaternion.Euler(0, 0, rot);
+		_sr.flipX = transform.position.x < _finishPos.x;
 	}
 }
